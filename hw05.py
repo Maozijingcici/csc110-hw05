@@ -1,24 +1,62 @@
 """
-Name: (put your name here)
+Name: Cici Mao
 Peers: (add any collaborators)
 References: (anything you checked to solve this)
 """
 
 def get_letter():
     """ Add your own Docstring """
-    # remove the default return and add your code
-    return ""
+    # remove the default return and add your code\
+    while True:
+        letter = input("Give an single uppercase letter: ")
+        if len(letter) != 1:
+            print("Error: it needs to be a single character.")
+            continue
+        if letter not in "ABC":
+            print("Error: You provided the wrong character.")
+            continue
+        return letter
 
 def get_digit():
     """ Add your own Docstring """
     # remove the default return and add your code
-    return 0
+    while True:
+        digit = input("Give an single number character: ")
+
+        if not digit.isdigit():
+            print("Error: your input should be only digits.")
+            continue
+
+        if digit not in ["1", "2", "3"]:
+            print("Error: a single digit needs to be in [1,3].")
+            continue
+
+        return digit
 
 
 def check_pattern(letter, digit, lst):
     """ Add your own Docstring """
     # remove the default pass and add your code
-    pass
+    print("Strings with the pattern:")
+
+    for word in lst:
+        found = False
+
+        for i in range(len(word)):
+            if word[i] == letter:
+
+                for j in range(i + 1, len(word)):
+                    if word[j] == digit:
+                        found = True
+                        break
+
+            if found:
+                break
+
+        if found:
+            print(word, end=" ")
+
+    print()
 
 
 #  The function main is INCOMPLETE, you must finish it
@@ -41,8 +79,15 @@ def main ():
     #          IF the user replies with anything else, the loop ends
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
-
-    # Your code Here
+    while True:
+        letter = get_letter()
+        digit = get_digit()
+        check_pattern(letter, digit, st_list)
+        answer = input("Try Again? (y/n): ")
+        
+        if answer != "y":
+            break
+    
 
     # -------------------------------------------------
     # No need to modify anything Below this line
